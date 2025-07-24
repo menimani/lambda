@@ -146,7 +146,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 */
 	@FunctionalInterface
-	public interface ThrowableConsumer1<T1, E extends Throwable> {
+	public interface ThrowableConsumer01<T1, E extends Throwable> {
 		/**
 		 * ラムダ式を即時実行します。（引数1個、戻り値なし）
 		 * @param arg1 第1引数
@@ -164,7 +164,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @return 保持されたラムダ式
 	 */
-	public static <T1, E extends Throwable> ThrowableConsumer1<T1, E> of(ThrowableConsumer1<T1, E> action) {
+	public static <T1, E extends Throwable> ThrowableConsumer01<T1, E> of(ThrowableConsumer01<T1, E> action) {
 		return action;
 	}
 	
@@ -176,7 +176,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @throws E ラムダ式がスローした例外
 	 */
-	public static <T1, E extends Throwable> void da(ThrowableConsumer1<T1, E> action, T1 arg1) throws E {
+	public static <T1, E extends Throwable> void da(ThrowableConsumer01<T1, E> action, T1 arg1) throws E {
 		of(action).da(arg1);
 	}
 	
@@ -187,7 +187,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 */
 	@FunctionalInterface
-	public interface ThrowableConsumer2<T1, T2, E extends Throwable> {
+	public interface ThrowableConsumer02<T1, T2, E extends Throwable> {
 		/**
 		 * ラムダ式を即時実行します。（引数2個、戻り値なし）
 		 * @param arg1 第1引数
@@ -207,7 +207,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @return 保持されたラムダ式
 	 */
-	public static <T1, T2, E extends Throwable> ThrowableConsumer2<T1, T2, E> of(ThrowableConsumer2<T1, T2, E> action) {
+	public static <T1, T2, E extends Throwable> ThrowableConsumer02<T1, T2, E> of(ThrowableConsumer02<T1, T2, E> action) {
 		return action;
 	}
 	
@@ -221,7 +221,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @throws E ラムダ式がスローした例外
 	 */
-	public static <T1, T2, E extends Throwable> void da(ThrowableConsumer2<T1, T2, E> action, T1 arg1, T2 arg2) throws E {
+	public static <T1, T2, E extends Throwable> void da(ThrowableConsumer02<T1, T2, E> action, T1 arg1, T2 arg2) throws E {
 		of(action).da(arg1, arg2);
 	}
 	
@@ -233,7 +233,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 */
 	@FunctionalInterface
-	public interface ThrowableConsumer3<T1, T2, T3, E extends Throwable> {
+	public interface ThrowableConsumer03<T1, T2, T3, E extends Throwable> {
 		/**
 		 * ラムダ式を即時実行します。（引数3個、戻り値なし）
 		 * @param arg1 第1引数
@@ -255,7 +255,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @return 保持されたラムダ式
 	 */
-	public static <T1, T2, T3, E extends Throwable> ThrowableConsumer3<T1, T2, T3, E> of(ThrowableConsumer3<T1, T2, T3, E> action) {
+	public static <T1, T2, T3, E extends Throwable> ThrowableConsumer03<T1, T2, T3, E> of(ThrowableConsumer03<T1, T2, T3, E> action) {
 		return action;
 	}
 	
@@ -271,7 +271,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @throws E ラムダ式がスローした例外
 	 */
-	public static <T1, T2, T3, E extends Throwable> void da(ThrowableConsumer3<T1, T2, T3, E> action, T1 arg1, T2 arg2, T3 arg3) throws E {
+	public static <T1, T2, T3, E extends Throwable> void da(ThrowableConsumer03<T1, T2, T3, E> action, T1 arg1, T2 arg2, T3 arg3) throws E {
 		of(action).da(arg1, arg2, arg3);
 	}
 	
@@ -284,7 +284,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 */
 	@FunctionalInterface
-	public interface ThrowableConsumer4<T1, T2, T3, T4, E extends Throwable> {
+	public interface ThrowableConsumer04<T1, T2, T3, T4, E extends Throwable> {
 		/**
 		 * ラムダ式を即時実行します。（引数4個、戻り値なし）
 		 * @param arg1 第1引数
@@ -308,7 +308,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @return 保持されたラムダ式
 	 */
-	public static <T1, T2, T3, T4, E extends Throwable> ThrowableConsumer4<T1, T2, T3, T4, E> of(ThrowableConsumer4<T1, T2, T3, T4, E> action) {
+	public static <T1, T2, T3, T4, E extends Throwable> ThrowableConsumer04<T1, T2, T3, T4, E> of(ThrowableConsumer04<T1, T2, T3, T4, E> action) {
 		return action;
 	}
 	
@@ -326,7 +326,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @throws E ラムダ式がスローした例外
 	 */
-	public static <T1, T2, T3, T4, E extends Throwable> void da(ThrowableConsumer4<T1, T2, T3, T4, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4) throws E {
+	public static <T1, T2, T3, T4, E extends Throwable> void da(ThrowableConsumer04<T1, T2, T3, T4, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4) throws E {
 		of(action).da(arg1, arg2, arg3, arg4);
 	}
 	
@@ -340,7 +340,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 */
 	@FunctionalInterface
-	public interface ThrowableConsumer5<T1, T2, T3, T4, T5, E extends Throwable> {
+	public interface ThrowableConsumer05<T1, T2, T3, T4, T5, E extends Throwable> {
 		/**
 		 * ラムダ式を即時実行します。（引数5個、戻り値なし）
 		 * @param arg1 第1引数
@@ -366,7 +366,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @return 保持されたラムダ式
 	 */
-	public static <T1, T2, T3, T4, T5, E extends Throwable> ThrowableConsumer5<T1, T2, T3, T4, T5, E> of(ThrowableConsumer5<T1, T2, T3, T4, T5, E> action) {
+	public static <T1, T2, T3, T4, T5, E extends Throwable> ThrowableConsumer05<T1, T2, T3, T4, T5, E> of(ThrowableConsumer05<T1, T2, T3, T4, T5, E> action) {
 		return action;
 	}
 	
@@ -386,7 +386,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @throws E ラムダ式がスローした例外
 	 */
-	public static <T1, T2, T3, T4, T5, E extends Throwable> void da(ThrowableConsumer5<T1, T2, T3, T4, T5, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5) throws E {
+	public static <T1, T2, T3, T4, T5, E extends Throwable> void da(ThrowableConsumer05<T1, T2, T3, T4, T5, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5) throws E {
 		of(action).da(arg1, arg2, arg3, arg4, arg5);
 	}
 	
@@ -401,7 +401,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 */
 	@FunctionalInterface
-	public interface ThrowableConsumer6<T1, T2, T3, T4, T5, T6, E extends Throwable> {
+	public interface ThrowableConsumer06<T1, T2, T3, T4, T5, T6, E extends Throwable> {
 		/**
 		 * ラムダ式を即時実行します。（引数6個、戻り値なし）
 		 * @param arg1 第1引数
@@ -429,7 +429,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @return 保持されたラムダ式
 	 */
-	public static <T1, T2, T3, T4, T5, T6, E extends Throwable> ThrowableConsumer6<T1, T2, T3, T4, T5, T6, E> of(ThrowableConsumer6<T1, T2, T3, T4, T5, T6, E> action) {
+	public static <T1, T2, T3, T4, T5, T6, E extends Throwable> ThrowableConsumer06<T1, T2, T3, T4, T5, T6, E> of(ThrowableConsumer06<T1, T2, T3, T4, T5, T6, E> action) {
 		return action;
 	}
 	
@@ -451,7 +451,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @throws E ラムダ式がスローした例外
 	 */
-	public static <T1, T2, T3, T4, T5, T6, E extends Throwable> void da(ThrowableConsumer6<T1, T2, T3, T4, T5, T6, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6) throws E {
+	public static <T1, T2, T3, T4, T5, T6, E extends Throwable> void da(ThrowableConsumer06<T1, T2, T3, T4, T5, T6, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6) throws E {
 		of(action).da(arg1, arg2, arg3, arg4, arg5, arg6);
 	}
 	
@@ -467,7 +467,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 */
 	@FunctionalInterface
-	public interface ThrowableConsumer7<T1, T2, T3, T4, T5, T6, T7, E extends Throwable> {
+	public interface ThrowableConsumer07<T1, T2, T3, T4, T5, T6, T7, E extends Throwable> {
 		/**
 		 * ラムダ式を即時実行します。（引数7個、戻り値なし）
 		 * @param arg1 第1引数
@@ -497,7 +497,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @return 保持されたラムダ式
 	 */
-	public static <T1, T2, T3, T4, T5, T6, T7, E extends Throwable> ThrowableConsumer7<T1, T2, T3, T4, T5, T6, T7, E> of(ThrowableConsumer7<T1, T2, T3, T4, T5, T6, T7, E> action) {
+	public static <T1, T2, T3, T4, T5, T6, T7, E extends Throwable> ThrowableConsumer07<T1, T2, T3, T4, T5, T6, T7, E> of(ThrowableConsumer07<T1, T2, T3, T4, T5, T6, T7, E> action) {
 		return action;
 	}
 	
@@ -521,7 +521,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @throws E ラムダ式がスローした例外
 	 */
-	public static <T1, T2, T3, T4, T5, T6, T7, E extends Throwable> void da(ThrowableConsumer7<T1, T2, T3, T4, T5, T6, T7, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7) throws E {
+	public static <T1, T2, T3, T4, T5, T6, T7, E extends Throwable> void da(ThrowableConsumer07<T1, T2, T3, T4, T5, T6, T7, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7) throws E {
 		of(action).da(arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 	}
 	
@@ -538,7 +538,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 */
 	@FunctionalInterface
-	public interface ThrowableConsumer8<T1, T2, T3, T4, T5, T6, T7, T8, E extends Throwable> {
+	public interface ThrowableConsumer08<T1, T2, T3, T4, T5, T6, T7, T8, E extends Throwable> {
 		/**
 		 * ラムダ式を即時実行します。（引数8個、戻り値なし）
 		 * @param arg1 第1引数
@@ -570,7 +570,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @return 保持されたラムダ式
 	 */
-	public static <T1, T2, T3, T4, T5, T6, T7, T8, E extends Throwable> ThrowableConsumer8<T1, T2, T3, T4, T5, T6, T7, T8, E> of(ThrowableConsumer8<T1, T2, T3, T4, T5, T6, T7, T8, E> action) {
+	public static <T1, T2, T3, T4, T5, T6, T7, T8, E extends Throwable> ThrowableConsumer08<T1, T2, T3, T4, T5, T6, T7, T8, E> of(ThrowableConsumer08<T1, T2, T3, T4, T5, T6, T7, T8, E> action) {
 		return action;
 	}
 	
@@ -596,7 +596,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @throws E ラムダ式がスローした例外
 	 */
-	public static <T1, T2, T3, T4, T5, T6, T7, T8, E extends Throwable> void da(ThrowableConsumer8<T1, T2, T3, T4, T5, T6, T7, T8, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8) throws E {
+	public static <T1, T2, T3, T4, T5, T6, T7, T8, E extends Throwable> void da(ThrowableConsumer08<T1, T2, T3, T4, T5, T6, T7, T8, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8) throws E {
 		of(action).da(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
 	}
 	
@@ -614,7 +614,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 */
 	@FunctionalInterface
-	public interface ThrowableConsumer9<T1, T2, T3, T4, T5, T6, T7, T8, T9, E extends Throwable> {
+	public interface ThrowableConsumer09<T1, T2, T3, T4, T5, T6, T7, T8, T9, E extends Throwable> {
 		/**
 		 * ラムダ式を即時実行します。（引数9個、戻り値なし）
 		 * @param arg1 第1引数
@@ -648,7 +648,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @return 保持されたラムダ式
 	 */
-	public static <T1, T2, T3, T4, T5, T6, T7, T8, T9, E extends Throwable> ThrowableConsumer9<T1, T2, T3, T4, T5, T6, T7, T8, T9, E> of(ThrowableConsumer9<T1, T2, T3, T4, T5, T6, T7, T8, T9, E> action) {
+	public static <T1, T2, T3, T4, T5, T6, T7, T8, T9, E extends Throwable> ThrowableConsumer09<T1, T2, T3, T4, T5, T6, T7, T8, T9, E> of(ThrowableConsumer09<T1, T2, T3, T4, T5, T6, T7, T8, T9, E> action) {
 		return action;
 	}
 	
@@ -676,7 +676,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @throws E ラムダ式がスローした例外
 	 */
-	public static <T1, T2, T3, T4, T5, T6, T7, T8, T9, E extends Throwable> void da(ThrowableConsumer9<T1, T2, T3, T4, T5, T6, T7, T8, T9, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9) throws E {
+	public static <T1, T2, T3, T4, T5, T6, T7, T8, T9, E extends Throwable> void da(ThrowableConsumer09<T1, T2, T3, T4, T5, T6, T7, T8, T9, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9) throws E {
 		of(action).da(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
 	}
 	
@@ -1899,7 +1899,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 */
 	@FunctionalInterface
-	public interface ThrowableFunction1<T1, R, E extends Throwable> {
+	public interface ThrowableFunction01<T1, R, E extends Throwable> {
 		/**
 		 * ラムダ式を即時実行します。（引数1個、戻り値あり）
 		 * @param arg1 第1引数
@@ -1919,7 +1919,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @return 保持されたラムダ式
 	 */
-	public static <T1, R, E extends Throwable> ThrowableFunction1<T1, R, E> of(ThrowableFunction1<T1, R, E> action) {
+	public static <T1, R, E extends Throwable> ThrowableFunction01<T1, R, E> of(ThrowableFunction01<T1, R, E> action) {
 		return action;
 	}
 	
@@ -1933,7 +1933,7 @@ public final class Lamb {
 	 * @return ラムダ式の戻り値
 	 * @throws E ラムダ式がスローした例外
 	 */
-	public static <T1, R, E extends Throwable> R da(ThrowableFunction1<T1, R, E> action, T1 arg1) throws E {
+	public static <T1, R, E extends Throwable> R da(ThrowableFunction01<T1, R, E> action, T1 arg1) throws E {
 		return of(action).da(arg1);
 	}
 	
@@ -1945,7 +1945,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 */
 	@FunctionalInterface
-	public interface ThrowableFunction2<T1, T2, R, E extends Throwable> {
+	public interface ThrowableFunction02<T1, T2, R, E extends Throwable> {
 		/**
 		 * ラムダ式を即時実行します。（引数2個、戻り値あり）
 		 * @param arg1 第1引数
@@ -1967,7 +1967,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @return 保持されたラムダ式
 	 */
-	public static <T1, T2, R, E extends Throwable> ThrowableFunction2<T1, T2, R, E> of(ThrowableFunction2<T1, T2, R, E> action) {
+	public static <T1, T2, R, E extends Throwable> ThrowableFunction02<T1, T2, R, E> of(ThrowableFunction02<T1, T2, R, E> action) {
 		return action;
 	}
 	
@@ -1983,7 +1983,7 @@ public final class Lamb {
 	 * @return ラムダ式の戻り値
 	 * @throws E ラムダ式がスローした例外
 	 */
-	public static <T1, T2, R, E extends Throwable> R da(ThrowableFunction2<T1, T2, R, E> action, T1 arg1, T2 arg2) throws E {
+	public static <T1, T2, R, E extends Throwable> R da(ThrowableFunction02<T1, T2, R, E> action, T1 arg1, T2 arg2) throws E {
 		return of(action).da(arg1, arg2);
 	}
 	
@@ -1996,7 +1996,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 */
 	@FunctionalInterface
-	public interface ThrowableFunction3<T1, T2, T3, R, E extends Throwable> {
+	public interface ThrowableFunction03<T1, T2, T3, R, E extends Throwable> {
 		/**
 		 * ラムダ式を即時実行します。（引数3個、戻り値あり）
 		 * @param arg1 第1引数
@@ -2020,7 +2020,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @return 保持されたラムダ式
 	 */
-	public static <T1, T2, T3, R, E extends Throwable> ThrowableFunction3<T1, T2, T3, R, E> of(ThrowableFunction3<T1, T2, T3, R, E> action) {
+	public static <T1, T2, T3, R, E extends Throwable> ThrowableFunction03<T1, T2, T3, R, E> of(ThrowableFunction03<T1, T2, T3, R, E> action) {
 		return action;
 	}
 	
@@ -2038,7 +2038,7 @@ public final class Lamb {
 	 * @return ラムダ式の戻り値
 	 * @throws E ラムダ式がスローした例外
 	 */
-	public static <T1, T2, T3, R, E extends Throwable> R da(ThrowableFunction3<T1, T2, T3, R, E> action, T1 arg1, T2 arg2, T3 arg3) throws E {
+	public static <T1, T2, T3, R, E extends Throwable> R da(ThrowableFunction03<T1, T2, T3, R, E> action, T1 arg1, T2 arg2, T3 arg3) throws E {
 		return of(action).da(arg1, arg2, arg3);
 	}
 	
@@ -2052,7 +2052,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 */
 	@FunctionalInterface
-	public interface ThrowableFunction4<T1, T2, T3, T4, R, E extends Throwable> {
+	public interface ThrowableFunction04<T1, T2, T3, T4, R, E extends Throwable> {
 		/**
 		 * ラムダ式を即時実行します。（引数4個、戻り値あり）
 		 * @param arg1 第1引数
@@ -2078,7 +2078,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @return 保持されたラムダ式
 	 */
-	public static <T1, T2, T3, T4, R, E extends Throwable> ThrowableFunction4<T1, T2, T3, T4, R, E> of(ThrowableFunction4<T1, T2, T3, T4, R, E> action) {
+	public static <T1, T2, T3, T4, R, E extends Throwable> ThrowableFunction04<T1, T2, T3, T4, R, E> of(ThrowableFunction04<T1, T2, T3, T4, R, E> action) {
 		return action;
 	}
 	
@@ -2098,7 +2098,7 @@ public final class Lamb {
 	 * @return ラムダ式の戻り値
 	 * @throws E ラムダ式がスローした例外
 	 */
-	public static <T1, T2, T3, T4, R, E extends Throwable> R da(ThrowableFunction4<T1, T2, T3, T4, R, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4) throws E {
+	public static <T1, T2, T3, T4, R, E extends Throwable> R da(ThrowableFunction04<T1, T2, T3, T4, R, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4) throws E {
 		return of(action).da(arg1, arg2, arg3, arg4);
 	}
 	
@@ -2113,7 +2113,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 */
 	@FunctionalInterface
-	public interface ThrowableFunction5<T1, T2, T3, T4, T5, R, E extends Throwable> {
+	public interface ThrowableFunction05<T1, T2, T3, T4, T5, R, E extends Throwable> {
 		/**
 		 * ラムダ式を即時実行します。（引数5個、戻り値あり）
 		 * @param arg1 第1引数
@@ -2141,7 +2141,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @return 保持されたラムダ式
 	 */
-	public static <T1, T2, T3, T4, T5, R, E extends Throwable> ThrowableFunction5<T1, T2, T3, T4, T5, R, E> of(ThrowableFunction5<T1, T2, T3, T4, T5, R, E> action) {
+	public static <T1, T2, T3, T4, T5, R, E extends Throwable> ThrowableFunction05<T1, T2, T3, T4, T5, R, E> of(ThrowableFunction05<T1, T2, T3, T4, T5, R, E> action) {
 		return action;
 	}
 	
@@ -2163,7 +2163,7 @@ public final class Lamb {
 	 * @return ラムダ式の戻り値
 	 * @throws E ラムダ式がスローした例外
 	 */
-	public static <T1, T2, T3, T4, T5, R, E extends Throwable> R da(ThrowableFunction5<T1, T2, T3, T4, T5, R, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5) throws E {
+	public static <T1, T2, T3, T4, T5, R, E extends Throwable> R da(ThrowableFunction05<T1, T2, T3, T4, T5, R, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5) throws E {
 		return of(action).da(arg1, arg2, arg3, arg4, arg5);
 	}
 	
@@ -2179,7 +2179,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 */
 	@FunctionalInterface
-	public interface ThrowableFunction6<T1, T2, T3, T4, T5, T6, R, E extends Throwable> {
+	public interface ThrowableFunction06<T1, T2, T3, T4, T5, T6, R, E extends Throwable> {
 		/**
 		 * ラムダ式を即時実行します。（引数6個、戻り値あり）
 		 * @param arg1 第1引数
@@ -2209,7 +2209,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @return 保持されたラムダ式
 	 */
-	public static <T1, T2, T3, T4, T5, T6, R, E extends Throwable> ThrowableFunction6<T1, T2, T3, T4, T5, T6, R, E> of(ThrowableFunction6<T1, T2, T3, T4, T5, T6, R, E> action) {
+	public static <T1, T2, T3, T4, T5, T6, R, E extends Throwable> ThrowableFunction06<T1, T2, T3, T4, T5, T6, R, E> of(ThrowableFunction06<T1, T2, T3, T4, T5, T6, R, E> action) {
 		return action;
 	}
 	
@@ -2233,7 +2233,7 @@ public final class Lamb {
 	 * @return ラムダ式の戻り値
 	 * @throws E ラムダ式がスローした例外
 	 */
-	public static <T1, T2, T3, T4, T5, T6, R, E extends Throwable> R da(ThrowableFunction6<T1, T2, T3, T4, T5, T6, R, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6) throws E {
+	public static <T1, T2, T3, T4, T5, T6, R, E extends Throwable> R da(ThrowableFunction06<T1, T2, T3, T4, T5, T6, R, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6) throws E {
 		return of(action).da(arg1, arg2, arg3, arg4, arg5, arg6);
 	}
 	
@@ -2250,7 +2250,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 */
 	@FunctionalInterface
-	public interface ThrowableFunction7<T1, T2, T3, T4, T5, T6, T7, R, E extends Throwable> {
+	public interface ThrowableFunction07<T1, T2, T3, T4, T5, T6, T7, R, E extends Throwable> {
 		/**
 		 * ラムダ式を即時実行します。（引数7個、戻り値あり）
 		 * @param arg1 第1引数
@@ -2282,7 +2282,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @return 保持されたラムダ式
 	 */
-	public static <T1, T2, T3, T4, T5, T6, T7, R, E extends Throwable> ThrowableFunction7<T1, T2, T3, T4, T5, T6, T7, R, E> of(ThrowableFunction7<T1, T2, T3, T4, T5, T6, T7, R, E> action) {
+	public static <T1, T2, T3, T4, T5, T6, T7, R, E extends Throwable> ThrowableFunction07<T1, T2, T3, T4, T5, T6, T7, R, E> of(ThrowableFunction07<T1, T2, T3, T4, T5, T6, T7, R, E> action) {
 		return action;
 	}
 	
@@ -2308,7 +2308,7 @@ public final class Lamb {
 	 * @return ラムダ式の戻り値
 	 * @throws E ラムダ式がスローした例外
 	 */
-	public static <T1, T2, T3, T4, T5, T6, T7, R, E extends Throwable> R da(ThrowableFunction7<T1, T2, T3, T4, T5, T6, T7, R, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7) throws E {
+	public static <T1, T2, T3, T4, T5, T6, T7, R, E extends Throwable> R da(ThrowableFunction07<T1, T2, T3, T4, T5, T6, T7, R, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7) throws E {
 		return of(action).da(arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 	}
 	
@@ -2326,7 +2326,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 */
 	@FunctionalInterface
-	public interface ThrowableFunction8<T1, T2, T3, T4, T5, T6, T7, T8, R, E extends Throwable> {
+	public interface ThrowableFunction08<T1, T2, T3, T4, T5, T6, T7, T8, R, E extends Throwable> {
 		/**
 		 * ラムダ式を即時実行します。（引数8個、戻り値あり）
 		 * @param arg1 第1引数
@@ -2360,7 +2360,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @return 保持されたラムダ式
 	 */
-	public static <T1, T2, T3, T4, T5, T6, T7, T8, R, E extends Throwable> ThrowableFunction8<T1, T2, T3, T4, T5, T6, T7, T8, R, E> of(ThrowableFunction8<T1, T2, T3, T4, T5, T6, T7, T8, R, E> action) {
+	public static <T1, T2, T3, T4, T5, T6, T7, T8, R, E extends Throwable> ThrowableFunction08<T1, T2, T3, T4, T5, T6, T7, T8, R, E> of(ThrowableFunction08<T1, T2, T3, T4, T5, T6, T7, T8, R, E> action) {
 		return action;
 	}
 	
@@ -2388,7 +2388,7 @@ public final class Lamb {
 	 * @return ラムダ式の戻り値
 	 * @throws E ラムダ式がスローした例外
 	 */
-	public static <T1, T2, T3, T4, T5, T6, T7, T8, R, E extends Throwable> R da(ThrowableFunction8<T1, T2, T3, T4, T5, T6, T7, T8, R, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8) throws E {
+	public static <T1, T2, T3, T4, T5, T6, T7, T8, R, E extends Throwable> R da(ThrowableFunction08<T1, T2, T3, T4, T5, T6, T7, T8, R, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8) throws E {
 		return of(action).da(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8);
 	}
 	
@@ -2407,7 +2407,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 */
 	@FunctionalInterface
-	public interface ThrowableFunction9<T1, T2, T3, T4, T5, T6, T7, T8, T9, R, E extends Throwable> {
+	public interface ThrowableFunction09<T1, T2, T3, T4, T5, T6, T7, T8, T9, R, E extends Throwable> {
 		/**
 		 * ラムダ式を即時実行します。（引数9個、戻り値あり）
 		 * @param arg1 第1引数
@@ -2443,7 +2443,7 @@ public final class Lamb {
 	 * @param <E> スローされる例外の型
 	 * @return 保持されたラムダ式
 	 */
-	public static <T1, T2, T3, T4, T5, T6, T7, T8, T9, R, E extends Throwable> ThrowableFunction9<T1, T2, T3, T4, T5, T6, T7, T8, T9, R, E> of(ThrowableFunction9<T1, T2, T3, T4, T5, T6, T7, T8, T9, R, E> action) {
+	public static <T1, T2, T3, T4, T5, T6, T7, T8, T9, R, E extends Throwable> ThrowableFunction09<T1, T2, T3, T4, T5, T6, T7, T8, T9, R, E> of(ThrowableFunction09<T1, T2, T3, T4, T5, T6, T7, T8, T9, R, E> action) {
 		return action;
 	}
 	
@@ -2473,7 +2473,7 @@ public final class Lamb {
 	 * @return ラムダ式の戻り値
 	 * @throws E ラムダ式がスローした例外
 	 */
-	public static <T1, T2, T3, T4, T5, T6, T7, T8, T9, R, E extends Throwable> R da(ThrowableFunction9<T1, T2, T3, T4, T5, T6, T7, T8, T9, R, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9) throws E {
+	public static <T1, T2, T3, T4, T5, T6, T7, T8, T9, R, E extends Throwable> R da(ThrowableFunction09<T1, T2, T3, T4, T5, T6, T7, T8, T9, R, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5, T6 arg6, T7 arg7, T8 arg8, T9 arg9) throws E {
 		return of(action).da(arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9);
 	}
 	

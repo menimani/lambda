@@ -149,7 +149,9 @@ $lines += "`t"
 $lines += "`t// =========== ThrowableConsumer ==========="
 for ($i = 1; $i -le $count; $i++) {
     $lines += "`t"
-    $interfaceName = "`ThrowableConsumer$i"
+    $digit = $count.ToString().Length
+    $padded = $i.ToString("D$digit")
+    $interfaceName = "`ThrowableConsumer$padded"
     $paramDefs = @("action")
     for ($j = 1; $j -le $i; $j++) {
         $paramDefs += "arg$j"
@@ -231,7 +233,9 @@ $lines += "`t"
 $lines += "`t// =========== ThrowableFunction ==========="
 for ($i = 1; $i -le $count; $i++) {
     $lines += "`t"
-    $interfaceName = "`ThrowableFunction$i"
+    $digit = $count.ToString().Length
+    $padded = $i.ToString("D$digit")
+    $interfaceName = "`ThrowableFunction$padded"
     $paramDefs = @("action")
     for ($j = 1; $j -le $i; $j++) {
         $paramDefs += "arg$j"
