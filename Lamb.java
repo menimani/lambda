@@ -64,14 +64,14 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableRunnable<E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数なし、戻り値なし）
+		 * ラムダ式を実行する（引数なし、戻り値なし）
 		 * @throws E ラムダ式がスローした例外
 		 */
 		void da() throws E;
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数なし、戻り値なし）
+	 * ラムダ式を保持する（引数なし、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 *
@@ -84,7 +84,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数なし、戻り値なし）
+	 * ラムダ式を即時実行する（引数なし、戻り値なし）
 	 *
 	 * @param action 実行するラムダ式
 	 * @param <E> スローされる例外の型
@@ -104,7 +104,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableSupplier<R, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数なし、戻り値あり）
+		 * ラムダ式を実行する（引数なし、戻り値あり）
 		 * @return ラムダ式の戻り値
 		 * @throws E ラムダ式がスローした例外
 		 */
@@ -112,7 +112,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数なし、戻り値あり）
+	 * ラムダ式を保持する（引数なし、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 *
@@ -126,7 +126,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数なし、戻り値あり）
+	 * ラムダ式を即時実行する（引数なし、戻り値あり）
 	 *
 	 * @param action 実行するラムダ式
 	 * @param <R> 戻り値の型
@@ -148,7 +148,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableConsumer01<T1, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数1個、戻り値なし）
+		 * ラムダ式を実行する（引数1個、戻り値なし）
 		 * @param arg1 第1引数
 		 * @throws E ラムダ式がスローした例外
 		 */
@@ -156,7 +156,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数1個、戻り値なし）
+	 * ラムダ式を保持する（引数1個、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -169,7 +169,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数1個、戻り値なし）
+	 * ラムダ式を即時実行する（引数1個、戻り値なし）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param <T1> 第1引数の型
@@ -189,7 +189,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableConsumer02<T1, T2, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数2個、戻り値なし）
+		 * ラムダ式を実行する（引数2個、戻り値なし）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @throws E ラムダ式がスローした例外
@@ -198,7 +198,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数2個、戻り値なし）
+	 * ラムダ式を保持する（引数2個、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -212,7 +212,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数2個、戻り値なし）
+	 * ラムダ式を即時実行する（引数2個、戻り値なし）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -235,7 +235,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableConsumer03<T1, T2, T3, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数3個、戻り値なし）
+		 * ラムダ式を実行する（引数3個、戻り値なし）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -245,7 +245,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数3個、戻り値なし）
+	 * ラムダ式を保持する（引数3個、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -260,7 +260,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数3個、戻り値なし）
+	 * ラムダ式を即時実行する（引数3個、戻り値なし）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -286,7 +286,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableConsumer04<T1, T2, T3, T4, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数4個、戻り値なし）
+		 * ラムダ式を実行する（引数4個、戻り値なし）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -297,7 +297,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数4個、戻り値なし）
+	 * ラムダ式を保持する（引数4個、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -313,7 +313,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数4個、戻り値なし）
+	 * ラムダ式を即時実行する（引数4個、戻り値なし）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -342,7 +342,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableConsumer05<T1, T2, T3, T4, T5, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数5個、戻り値なし）
+		 * ラムダ式を実行する（引数5個、戻り値なし）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -354,7 +354,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数5個、戻り値なし）
+	 * ラムダ式を保持する（引数5個、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -371,7 +371,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数5個、戻り値なし）
+	 * ラムダ式を即時実行する（引数5個、戻り値なし）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -403,7 +403,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableConsumer06<T1, T2, T3, T4, T5, T6, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数6個、戻り値なし）
+		 * ラムダ式を実行する（引数6個、戻り値なし）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -416,7 +416,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数6個、戻り値なし）
+	 * ラムダ式を保持する（引数6個、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -434,7 +434,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数6個、戻り値なし）
+	 * ラムダ式を即時実行する（引数6個、戻り値なし）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -469,7 +469,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableConsumer07<T1, T2, T3, T4, T5, T6, T7, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数7個、戻り値なし）
+		 * ラムダ式を実行する（引数7個、戻り値なし）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -483,7 +483,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数7個、戻り値なし）
+	 * ラムダ式を保持する（引数7個、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -502,7 +502,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数7個、戻り値なし）
+	 * ラムダ式を即時実行する（引数7個、戻り値なし）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -540,7 +540,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableConsumer08<T1, T2, T3, T4, T5, T6, T7, T8, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数8個、戻り値なし）
+		 * ラムダ式を実行する（引数8個、戻り値なし）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -555,7 +555,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数8個、戻り値なし）
+	 * ラムダ式を保持する（引数8個、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -575,7 +575,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数8個、戻り値なし）
+	 * ラムダ式を即時実行する（引数8個、戻り値なし）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -616,7 +616,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableConsumer09<T1, T2, T3, T4, T5, T6, T7, T8, T9, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数9個、戻り値なし）
+		 * ラムダ式を実行する（引数9個、戻り値なし）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -632,7 +632,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数9個、戻り値なし）
+	 * ラムダ式を保持する（引数9個、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -653,7 +653,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数9個、戻り値なし）
+	 * ラムダ式を即時実行する（引数9個、戻り値なし）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -697,7 +697,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableConsumer10<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数10個、戻り値なし）
+		 * ラムダ式を実行する（引数10個、戻り値なし）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -714,7 +714,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数10個、戻り値なし）
+	 * ラムダ式を保持する（引数10個、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -736,7 +736,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数10個、戻り値なし）
+	 * ラムダ式を即時実行する（引数10個、戻り値なし）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -783,7 +783,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableConsumer11<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数11個、戻り値なし）
+		 * ラムダ式を実行する（引数11個、戻り値なし）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -801,7 +801,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数11個、戻り値なし）
+	 * ラムダ式を保持する（引数11個、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -824,7 +824,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数11個、戻り値なし）
+	 * ラムダ式を即時実行する（引数11個、戻り値なし）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -874,7 +874,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableConsumer12<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数12個、戻り値なし）
+		 * ラムダ式を実行する（引数12個、戻り値なし）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -893,7 +893,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数12個、戻り値なし）
+	 * ラムダ式を保持する（引数12個、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -917,7 +917,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数12個、戻り値なし）
+	 * ラムダ式を即時実行する（引数12個、戻り値なし）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -970,7 +970,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableConsumer13<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数13個、戻り値なし）
+		 * ラムダ式を実行する（引数13個、戻り値なし）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -990,7 +990,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数13個、戻り値なし）
+	 * ラムダ式を保持する（引数13個、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -1015,7 +1015,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数13個、戻り値なし）
+	 * ラムダ式を即時実行する（引数13個、戻り値なし）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -1071,7 +1071,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableConsumer14<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数14個、戻り値なし）
+		 * ラムダ式を実行する（引数14個、戻り値なし）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -1092,7 +1092,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数14個、戻り値なし）
+	 * ラムダ式を保持する（引数14個、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -1118,7 +1118,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数14個、戻り値なし）
+	 * ラムダ式を即時実行する（引数14個、戻り値なし）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -1177,7 +1177,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableConsumer15<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数15個、戻り値なし）
+		 * ラムダ式を実行する（引数15個、戻り値なし）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -1199,7 +1199,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数15個、戻り値なし）
+	 * ラムダ式を保持する（引数15個、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -1226,7 +1226,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数15個、戻り値なし）
+	 * ラムダ式を即時実行する（引数15個、戻り値なし）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -1288,7 +1288,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableConsumer16<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数16個、戻り値なし）
+		 * ラムダ式を実行する（引数16個、戻り値なし）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -1311,7 +1311,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数16個、戻り値なし）
+	 * ラムダ式を保持する（引数16個、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -1339,7 +1339,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数16個、戻り値なし）
+	 * ラムダ式を即時実行する（引数16個、戻り値なし）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -1404,7 +1404,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableConsumer17<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数17個、戻り値なし）
+		 * ラムダ式を実行する（引数17個、戻り値なし）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -1428,7 +1428,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数17個、戻り値なし）
+	 * ラムダ式を保持する（引数17個、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -1457,7 +1457,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数17個、戻り値なし）
+	 * ラムダ式を即時実行する（引数17個、戻り値なし）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -1525,7 +1525,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableConsumer18<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数18個、戻り値なし）
+		 * ラムダ式を実行する（引数18個、戻り値なし）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -1550,7 +1550,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数18個、戻り値なし）
+	 * ラムダ式を保持する（引数18個、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -1580,7 +1580,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数18個、戻り値なし）
+	 * ラムダ式を即時実行する（引数18個、戻り値なし）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -1651,7 +1651,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableConsumer19<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数19個、戻り値なし）
+		 * ラムダ式を実行する（引数19個、戻り値なし）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -1677,7 +1677,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数19個、戻り値なし）
+	 * ラムダ式を保持する（引数19個、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -1708,7 +1708,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数19個、戻り値なし）
+	 * ラムダ式を即時実行する（引数19個、戻り値なし）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -1782,7 +1782,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableConsumer20<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数20個、戻り値なし）
+		 * ラムダ式を実行する（引数20個、戻り値なし）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -1809,7 +1809,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数20個、戻り値なし）
+	 * ラムダ式を保持する（引数20個、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -1841,7 +1841,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数20個、戻り値なし）
+	 * ラムダ式を即時実行する（引数20個、戻り値なし）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -1901,7 +1901,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableFunction01<T1, R, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数1個、戻り値あり）
+		 * ラムダ式を実行する（引数1個、戻り値あり）
 		 * @param arg1 第1引数
 		 * @return ラムダ式の戻り値
 		 * @throws E ラムダ式がスローした例外
@@ -1910,7 +1910,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数1個、戻り値あり）
+	 * ラムダ式を保持する（引数1個、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -1924,7 +1924,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数1個、戻り値あり）
+	 * ラムダ式を即時実行する（引数1個、戻り値あり）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param <T1> 第1引数の型
@@ -1947,7 +1947,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableFunction02<T1, T2, R, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数2個、戻り値あり）
+		 * ラムダ式を実行する（引数2個、戻り値あり）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @return ラムダ式の戻り値
@@ -1957,7 +1957,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数2個、戻り値あり）
+	 * ラムダ式を保持する（引数2個、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -1972,7 +1972,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数2個、戻り値あり）
+	 * ラムダ式を即時実行する（引数2個、戻り値あり）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -1998,7 +1998,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableFunction03<T1, T2, T3, R, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数3個、戻り値あり）
+		 * ラムダ式を実行する（引数3個、戻り値あり）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -2009,7 +2009,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数3個、戻り値あり）
+	 * ラムダ式を保持する（引数3個、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -2025,7 +2025,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数3個、戻り値あり）
+	 * ラムダ式を即時実行する（引数3個、戻り値あり）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -2054,7 +2054,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableFunction04<T1, T2, T3, T4, R, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数4個、戻り値あり）
+		 * ラムダ式を実行する（引数4個、戻り値あり）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -2066,7 +2066,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数4個、戻り値あり）
+	 * ラムダ式を保持する（引数4個、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -2083,7 +2083,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数4個、戻り値あり）
+	 * ラムダ式を即時実行する（引数4個、戻り値あり）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -2115,7 +2115,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableFunction05<T1, T2, T3, T4, T5, R, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数5個、戻り値あり）
+		 * ラムダ式を実行する（引数5個、戻り値あり）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -2128,7 +2128,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数5個、戻り値あり）
+	 * ラムダ式を保持する（引数5個、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -2146,7 +2146,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数5個、戻り値あり）
+	 * ラムダ式を即時実行する（引数5個、戻り値あり）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -2181,7 +2181,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableFunction06<T1, T2, T3, T4, T5, T6, R, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数6個、戻り値あり）
+		 * ラムダ式を実行する（引数6個、戻り値あり）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -2195,7 +2195,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数6個、戻り値あり）
+	 * ラムダ式を保持する（引数6個、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -2214,7 +2214,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数6個、戻り値あり）
+	 * ラムダ式を即時実行する（引数6個、戻り値あり）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -2252,7 +2252,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableFunction07<T1, T2, T3, T4, T5, T6, T7, R, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数7個、戻り値あり）
+		 * ラムダ式を実行する（引数7個、戻り値あり）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -2267,7 +2267,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数7個、戻り値あり）
+	 * ラムダ式を保持する（引数7個、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -2287,7 +2287,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数7個、戻り値あり）
+	 * ラムダ式を即時実行する（引数7個、戻り値あり）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -2328,7 +2328,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableFunction08<T1, T2, T3, T4, T5, T6, T7, T8, R, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数8個、戻り値あり）
+		 * ラムダ式を実行する（引数8個、戻り値あり）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -2344,7 +2344,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数8個、戻り値あり）
+	 * ラムダ式を保持する（引数8個、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -2365,7 +2365,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数8個、戻り値あり）
+	 * ラムダ式を即時実行する（引数8個、戻り値あり）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -2409,7 +2409,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableFunction09<T1, T2, T3, T4, T5, T6, T7, T8, T9, R, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数9個、戻り値あり）
+		 * ラムダ式を実行する（引数9個、戻り値あり）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -2426,7 +2426,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数9個、戻り値あり）
+	 * ラムダ式を保持する（引数9個、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -2448,7 +2448,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数9個、戻り値あり）
+	 * ラムダ式を即時実行する（引数9個、戻り値あり）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -2495,7 +2495,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableFunction10<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, R, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数10個、戻り値あり）
+		 * ラムダ式を実行する（引数10個、戻り値あり）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -2513,7 +2513,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数10個、戻り値あり）
+	 * ラムダ式を保持する（引数10個、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -2536,7 +2536,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数10個、戻り値あり）
+	 * ラムダ式を即時実行する（引数10個、戻り値あり）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -2586,7 +2586,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableFunction11<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, R, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数11個、戻り値あり）
+		 * ラムダ式を実行する（引数11個、戻り値あり）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -2605,7 +2605,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数11個、戻り値あり）
+	 * ラムダ式を保持する（引数11個、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -2629,7 +2629,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数11個、戻り値あり）
+	 * ラムダ式を即時実行する（引数11個、戻り値あり）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -2682,7 +2682,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableFunction12<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, R, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数12個、戻り値あり）
+		 * ラムダ式を実行する（引数12個、戻り値あり）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -2702,7 +2702,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数12個、戻り値あり）
+	 * ラムダ式を保持する（引数12個、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -2727,7 +2727,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数12個、戻り値あり）
+	 * ラムダ式を即時実行する（引数12個、戻り値あり）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -2783,7 +2783,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableFunction13<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, R, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数13個、戻り値あり）
+		 * ラムダ式を実行する（引数13個、戻り値あり）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -2804,7 +2804,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数13個、戻り値あり）
+	 * ラムダ式を保持する（引数13個、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -2830,7 +2830,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数13個、戻り値あり）
+	 * ラムダ式を即時実行する（引数13個、戻り値あり）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -2889,7 +2889,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableFunction14<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, R, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数14個、戻り値あり）
+		 * ラムダ式を実行する（引数14個、戻り値あり）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -2911,7 +2911,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数14個、戻り値あり）
+	 * ラムダ式を保持する（引数14個、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -2938,7 +2938,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数14個、戻り値あり）
+	 * ラムダ式を即時実行する（引数14個、戻り値あり）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -3000,7 +3000,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableFunction15<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, R, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数15個、戻り値あり）
+		 * ラムダ式を実行する（引数15個、戻り値あり）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -3023,7 +3023,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数15個、戻り値あり）
+	 * ラムダ式を保持する（引数15個、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -3051,7 +3051,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数15個、戻り値あり）
+	 * ラムダ式を即時実行する（引数15個、戻り値あり）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -3116,7 +3116,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableFunction16<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, R, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数16個、戻り値あり）
+		 * ラムダ式を実行する（引数16個、戻り値あり）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -3140,7 +3140,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数16個、戻り値あり）
+	 * ラムダ式を保持する（引数16個、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -3169,7 +3169,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数16個、戻り値あり）
+	 * ラムダ式を即時実行する（引数16個、戻り値あり）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -3237,7 +3237,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableFunction17<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, R, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数17個、戻り値あり）
+		 * ラムダ式を実行する（引数17個、戻り値あり）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -3262,7 +3262,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数17個、戻り値あり）
+	 * ラムダ式を保持する（引数17個、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -3292,7 +3292,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数17個、戻り値あり）
+	 * ラムダ式を即時実行する（引数17個、戻り値あり）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -3363,7 +3363,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableFunction18<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, R, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数18個、戻り値あり）
+		 * ラムダ式を実行する（引数18個、戻り値あり）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -3389,7 +3389,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数18個、戻り値あり）
+	 * ラムダ式を保持する（引数18個、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -3420,7 +3420,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数18個、戻り値あり）
+	 * ラムダ式を即時実行する（引数18個、戻り値あり）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -3494,7 +3494,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableFunction19<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, R, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数19個、戻り値あり）
+		 * ラムダ式を実行する（引数19個、戻り値あり）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -3521,7 +3521,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数19個、戻り値あり）
+	 * ラムダ式を保持する（引数19個、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -3553,7 +3553,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数19個、戻り値あり）
+	 * ラムダ式を即時実行する（引数19個、戻り値あり）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
@@ -3630,7 +3630,7 @@ public final class Lamb {
 	@FunctionalInterface
 	public interface ThrowableFunction20<T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16, T17, T18, T19, T20, R, E extends Throwable> {
 		/**
-		 * ラムダ式を即時実行します。（引数20個、戻り値あり）
+		 * ラムダ式を実行する（引数20個、戻り値あり）
 		 * @param arg1 第1引数
 		 * @param arg2 第2引数
 		 * @param arg3 第3引数
@@ -3658,7 +3658,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を保持します。（引数20個、戻り値あり）
+	 * ラムダ式を保持する（引数20個、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
 	 * @param action 保持するラムダ式
@@ -3691,7 +3691,7 @@ public final class Lamb {
 	}
 	
 	/**
-	 * ラムダ式を即時実行します。（引数20個、戻り値あり）
+	 * ラムダ式を即時実行する（引数20個、戻り値あり）
 	 * @param action 実行するラムダ式
 	 * @param arg1 第1引数
 	 * @param arg2 第2引数
