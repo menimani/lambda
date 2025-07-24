@@ -1,10 +1,10 @@
-package lambda;
+﻿package lambda;
 
 /**
  * {@code Lamb} は、例外をスローするラムダ式を即時実行または保持して実行するためのユーティリティクラスです。
  * <p>
  * 各種 {@code FunctionalInterface} をラップし、引数の有無・戻り値の有無・例外の有無にかかわらず、
- * 統一的な形でラムダを扱うことができます。
+ * 統一的な形でラムダ式を扱うことができます。
  * </p>
  *
  * <h2>主な用途</h2>
@@ -49,573 +49,621 @@ package lambda;
  * 本クラスは {@code throws} を明示する設計により、安全に例外対応が可能です。
  * </p>
  *
- * @author [Your Name]
+ * @author menimani
  * @since 1.0
  */
 public final class Lamb {
-    private Lamb() {}
-
-    // =========== ThrowableRunnable ===========
-
-    /**
-     * ラムダ式（引数なし、戻り値なし）
-     * @param <E> スローされる例外の型
-     */
-    @FunctionalInterface
-    public interface ThrowableRunnable<E extends Throwable> {
-        void da() throws E;
-    }
-
-    /**
-     * ラムダ式を保持します。（引数なし、戻り値なし）
-     * <p>
-     * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
-     *
-     * @param action 保持するラムダ式
-     * @param <E> スローされる例外の型
-     * @return 保持されたラムダオブジェクト
-     */
-    public static <E extends Throwable> ThrowableRunnable<E> of(ThrowableRunnable<E> action) {
-        return action;
-    }
-
-    /**
-     * ラムダ式を即時実行します。（引数なし、戻り値なし）
-     *
-     * @param action 実行するラムダ式
-     * @param <E> スローされる例外の型
-     * @throws E ラムダがスローした例外
-     */
-    public static <E extends Throwable> void da(ThrowableRunnable<E> action) throws E {
-        of(action).da();
-    }
-
-    // =========== ThrowableSupplier ===========
-
-    /**
-     * ラムダ式（引数なし、戻り値あり）
-     * @param <R> 戻り値の型
-     * @param <E> スローされる例外の型
-     */
-    @FunctionalInterface
-    public interface ThrowableSupplier<R, E extends Throwable> {
-        R da() throws E;
-    }
-
-    /**
-     * ラムダ式を保持します。（引数なし、戻り値あり）
-     * <p>
-     * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
-     *
-     * @param action 保持するラムダ式
-     * @param <R> 戻り値の型
-     * @param <E> スローされる例外の型
-     * @return 保持されたラムダオブジェクト
-     */
-    public static <R, E extends Throwable> ThrowableSupplier<R, E> of(ThrowableSupplier<R, E> action) {
-        return action;
-    }
-
-    /**
-     * ラムダ式を即時実行します。（引数なし、戻り値あり）
-     *
-     * @param action 実行するラムダ式
-     * @param <R> 戻り値の型
-     * @param <E> スローされる例外の型
-     * @return ラムダの戻り値
-     * @throws E ラムダがスローした例外
-     */
-    public static <R, E extends Throwable> R da(ThrowableSupplier<R, E> action) throws E {
-        return of(action).da();
-    }
-
-    // =========== ThrowableConsumer ===========
-
-    /**
-     * ラムダ式（引数１個、戻り値なし）
-     * @param <T> 第1引数の型
-     * @param <E> スローされる例外の型
-     */
-    @FunctionalInterface
-    public interface ThrowableConsumer<T, E extends Throwable> {
-        void da(T arg) throws E;
-    }
-
-    /**
-     * ラムダ式を保持します。（引数１個、戻り値なし）
-     * <p>
-     * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
-     *
-     * @param action 保持するラムダ式
-     * @param <T> 第1引数の型
-     * @param <E> スローされる例外の型
-     * @return 保持されたラムダオブジェクト
-     */
-    public static <T, E extends Throwable> ThrowableConsumer<T, E> of(ThrowableConsumer<T, E> action) {
-        return action;
-    }
-
-    /**
-     * ラムダ式を即時実行します。（引数１個、戻り値なし）
-     *
-     * @param action 実行するラムダ式
-     * @param arg 第1引数
-     * @param <T> 第1引数の型
-     * @param <E> スローされる例外の型
-     * @throws E ラムダがスローした例外
-     */
-    public static <T, E extends Throwable> void da(ThrowableConsumer<T, E> action, T arg) throws E {
-        of(action).da(arg);
-    }
-
-    // =========== ThrowableConsumer2 ===========
-
-    /**
-     * ラムダ式（引数２個、戻り値なし）
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <E> スローされる例外の型
-     */
-    @FunctionalInterface
-    public interface ThrowableConsumer2<T1, T2, E extends Throwable> {
-        void da(T1 arg1, T2 arg2) throws E;
-    }
-
-    /**
-     * ラムダ式を保持します。（引数２個、戻り値なし）
-     * <p>
-     * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
-     *
-     * @param action 保持するラムダ式
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <E> スローされる例外の型
-     * @return 保持されたラムダオブジェクト
-     */
-    public static <T1, T2, E extends Throwable> ThrowableConsumer2<T1, T2, E> of(ThrowableConsumer2<T1, T2, E> action) {
-        return action;
-    }
-
-    /**
-     * ラムダ式を即時実行します。（引数２個、戻り値なし）
-     *
-     * @param action 実行するラムダ式
-     * @param arg1 第1引数
-     * @param arg2 第2引数
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <E> スローされる例外の型
-     * @throws E ラムダがスローした例外
-     */
-    public static <T1, T2, E extends Throwable> void da(ThrowableConsumer2<T1, T2, E> action, T1 arg1, T2 arg2) throws E {
-        of(action).da(arg1, arg2);
-    }
-
-    // =========== ThrowableConsumer3 ===========
-
-    /**
-     * ラムダ式（引数３個、戻り値なし）
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <T3> 第3引数の型
-     * @param <E> スローされる例外の型
-     */
-    @FunctionalInterface
-    public interface ThrowableConsumer3<T1, T2, T3, E extends Throwable> {
-        void da(T1 arg1, T2 arg2, T3 arg3) throws E;
-    }
-
-    /**
-     * ラムダ式を保持します。（引数３個、戻り値なし）
-     * <p>
-     * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
-     *
-     * @param action 保持するラムダ式
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <T3> 第3引数の型
-     * @param <E> スローされる例外の型
-     * @return 保持されたラムダオブジェクト
-     */
-    public static <T1, T2, T3, E extends Throwable> ThrowableConsumer3<T1, T2, T3, E> of(ThrowableConsumer3<T1, T2, T3, E> action) {
-        return action;
-    }
-
-    /**
-     * ラムダ式を即時実行します。（引数３個、戻り値なし）
-     *
-     * @param action 実行するラムダ式
-     * @param arg1 第1引数
-     * @param arg2 第2引数
-     * @param arg3 第3引数
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <T3> 第3引数の型
-     * @param <E> スローされる例外の型
-     * @throws E ラムダがスローした例外
-     */
-    public static <T1, T2, T3, E extends Throwable> void da(ThrowableConsumer3<T1, T2, T3, E> action, T1 arg1, T2 arg2, T3 arg3) throws E {
-        of(action).da(arg1, arg2, arg3);
-    }
-
-    // =========== ThrowableConsumer4 ===========
-
-    /**
-     * ラムダ式（引数４個、戻り値なし）
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <T3> 第3引数の型
-     * @param <T4> 第4引数の型
-     * @param <E> スローされる例外の型
-     */
-    @FunctionalInterface
-    public interface ThrowableConsumer4<T1, T2, T3, T4, E extends Throwable> {
-        void da(T1 arg1, T2 arg2, T3 arg3, T4 arg4) throws E;
-    }
-
-    /**
-     * ラムダ式を保持します。（引数４個、戻り値なし）
-     * <p>
-     * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
-     *
-     * @param action 保持するラムダ式
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <T3> 第3引数の型
-     * @param <T4> 第4引数の型
-     * @param <E> スローされる例外の型
-     * @return 保持されたラムダオブジェクト
-     */
-    public static <T1, T2, T3, T4, E extends Throwable> ThrowableConsumer4<T1, T2, T3, T4, E> of(ThrowableConsumer4<T1, T2, T3, T4, E> action) {
-        return action;
-    }
-
-    /**
-     * ラムダ式を即時実行します。（引数４個、戻り値なし）
-     *
-     * @param action 実行するラムダ式
-     * @param arg1 第1引数
-     * @param arg2 第2引数
-     * @param arg3 第3引数
-     * @param arg4 第4引数
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <T3> 第3引数の型
-     * @param <T4> 第4引数の型
-     * @param <E> スローされる例外の型
-     * @throws E ラムダがスローした例外
-     */
-    public static <T1, T2, T3, T4, E extends Throwable> void da(ThrowableConsumer4<T1, T2, T3, T4, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4) throws E {
-        of(action).da(arg1, arg2, arg3, arg4);
-    }
-
-    // =========== ThrowableConsumer5 ===========
-
-    /**
-     * ラムダ式（引数５個、戻り値なし）
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <T3> 第3引数の型
-     * @param <T4> 第4引数の型
-     * @param <T5> 第5引数の型
-     * @param <E> スローされる例外の型
-     */
-    @FunctionalInterface
-    public interface ThrowableConsumer5<T1, T2, T3, T4, T5, E extends Throwable> {
-        void da(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5) throws E;
-    }
-
-    /**
-     * ラムダ式を保持します。（引数５個、戻り値なし）
-     * <p>
-     * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
-     *
-     * @param action 保持するラムダ式
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <T3> 第3引数の型
-     * @param <T4> 第4引数の型
-     * @param <T5> 第5引数の型
-     * @param <E> スローされる例外の型
-     * @return 保持されたラムダオブジェクト
-     */
-    public static <T1, T2, T3, T4, T5, E extends Throwable> ThrowableConsumer5<T1, T2, T3, T4, T5, E> of(ThrowableConsumer5<T1, T2, T3, T4, T5, E> action) {
-        return action;
-    }
-
-    /**
-     * ラムダ式を即時実行します。（引数５個、戻り値なし）
-     *
-     * @param action 実行するラムダ式
-     * @param arg1 第1引数
-     * @param arg2 第2引数
-     * @param arg3 第3引数
-     * @param arg4 第4引数
-     * @param arg5 第5引数
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <T3> 第3引数の型
-     * @param <T4> 第4引数の型
-     * @param <T5> 第5引数の型
-     * @param <E> スローされる例外の型
-     * @throws E ラムダがスローした例外
-     */
-    public static <T1, T2, T3, T4, T5, E extends Throwable> void da(ThrowableConsumer5<T1, T2, T3, T4, T5, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5) throws E {
-        of(action).da(arg1, arg2, arg3, arg4, arg5);
-    }
-
-    // =========== ThrowableFunction ===========
-
-    /**
-     * ラムダ式（引数１個、戻り値あり）
-     * @param <T> 第1引数の型
-     * @param <R> 戻り値の型
-     * @param <E> スローされる例外の型
-     */
-    @FunctionalInterface
-    public interface ThrowableFunction<T, R, E extends Throwable> {
-        R da(T arg) throws E;
-    }
-
-    /**
-     * ラムダ式を保持します。（引数１個、戻り値あり）
-     * <p>
-     * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
-     *
-     * @param action 保持するラムダ式
-     * @param <T> 第1引数の型
-     * @param <R> 戻り値の型
-     * @param <E> スローされる例外の型
-     * @return 保持されたラムダオブジェクト
-     */
-    public static <T, R, E extends Throwable> ThrowableFunction<T, R, E> of(ThrowableFunction<T, R, E> action) {
-        return action;
-    }
-
-    /**
-     * ラムダ式を即時実行します。（引数１個、戻り値あり）
-     *
-     * @param action 実行するラムダ式
-     * @param arg 第1引数
-     * @param <T> 第1引数の型
-     * @param <R> 戻り値の型
-     * @param <E> スローされる例外の型
-     * @return ラムダの戻り値
-     * @throws E ラムダがスローした例外
-     */
-    public static <T, R, E extends Throwable> R da(ThrowableFunction<T, R, E> action, T arg) throws E {
-        return of(action).da(arg);
-    }
-
-    // =========== ThrowableFunction2 ===========
-
-    /**
-     * ラムダ式（引数２個、戻り値あり）
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <R> 戻り値の型
-     * @param <E> スローされる例外の型
-     */
-    @FunctionalInterface
-    public interface ThrowableFunction2<T1, T2, R, E extends Throwable> {
-        R da(T1 arg1, T2 arg2) throws E;
-    }
-
-    /**
-     * ラムダ式を保持します。（引数２個、戻り値あり）
-     * <p>
-     * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
-     *
-     * @param action 保持するラムダ式
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <R> 戻り値の型
-     * @param <E> スローされる例外の型
-     * @return 保持されたラムダオブジェクト
-     */
-    public static <T1, T2, R, E extends Throwable> ThrowableFunction2<T1, T2, R, E> of(ThrowableFunction2<T1, T2, R, E> action) {
-        return action;
-    }
-
-    /**
-     * ラムダ式を即時実行します。（引数２個、戻り値あり）
-     *
-     * @param action 実行するラムダ式
-     * @param arg1 第1引数
-     * @param arg2 第2引数
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <R> 戻り値の型
-     * @param <E> スローされる例外の型
-     * @return ラムダの戻り値
-     * @throws E ラムダがスローした例外
-     */
-    public static <T1, T2, R, E extends Throwable> R da(ThrowableFunction2<T1, T2, R, E> action, T1 arg1, T2 arg2) throws E {
-        return of(action).da(arg1, arg2);
-    }
-
-    // =========== ThrowableFunction3 ===========
-
-    /**
-     * ラムダ式（引数３個、戻り値あり）
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <T3> 第3引数の型
-     * @param <R> 戻り値の型
-     * @param <E> スローされる例外の型
-     */
-    @FunctionalInterface
-    public interface ThrowableFunction3<T1, T2, T3, R, E extends Throwable> {
-        R da(T1 arg1, T2 arg2, T3 arg3) throws E;
-    }
-
-    /**
-     * ラムダ式を保持します。（引数３個、戻り値あり）
-     * <p>
-     * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
-     *
-     * @param action 保持するラムダ式
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <T3> 第3引数の型
-     * @param <R> 戻り値の型
-     * @param <E> スローされる例外の型
-     * @return 保持されたラムダオブジェクト
-     */
-    public static <T1, T2, T3, R, E extends Throwable> ThrowableFunction3<T1, T2, T3, R, E> of(ThrowableFunction3<T1, T2, T3, R, E> action) {
-        return action;
-    }
-
-    /**
-     * ラムダ式を即時実行します。（引数３個、戻り値あり）
-     *
-     * @param action 実行するラムダ式
-     * @param arg1 第1引数
-     * @param arg2 第2引数
-     * @param arg3 第3引数
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <T3> 第3引数の型
-     * @param <R> 戻り値の型
-     * @param <E> スローされる例外の型
-     * @return ラムダの戻り値
-     * @throws E ラムダがスローした例外
-     */
-    public static <T1, T2, T3, R, E extends Throwable> R da(ThrowableFunction3<T1, T2, T3, R, E> action, T1 arg1, T2 arg2, T3 arg3) throws E {
-        return of(action).da(arg1, arg2, arg3);
-    }
-
-    // =========== ThrowableFunction4 ===========
-
-    /**
-     * ラムダ式（引数４個、戻り値あり）
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <T3> 第3引数の型
-     * @param <T4> 第4引数の型
-     * @param <R> 戻り値の型
-     * @param <E> スローされる例外の型
-     */
-    @FunctionalInterface
-    public interface ThrowableFunction4<T1, T2, T3, T4, R, E extends Throwable> {
-        R da(T1 arg1, T2 arg2, T3 arg3, T4 arg4) throws E;
-    }
-
-    /**
-     * ラムダ式を保持します。（引数４個、戻り値あり）
-     * <p>
-     * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
-     *
-     * @param action 保持するラムダ式
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <T3> 第3引数の型
-     * @param <T4> 第4引数の型
-     * @param <R> 戻り値の型
-     * @param <E> スローされる例外の型
-     * @return 保持されたラムダオブジェクト
-     */
-    public static <T1, T2, T3, T4, R, E extends Throwable> ThrowableFunction4<T1, T2, T3, T4, R, E> of(ThrowableFunction4<T1, T2, T3, T4, R, E> action) {
-        return action;
-    }
-
-    /**
-     * ラムダ式を即時実行します。（引数４個、戻り値あり）
-     *
-     * @param action 実行するラムダ式
-     * @param arg1 第1引数
-     * @param arg2 第2引数
-     * @param arg3 第3引数
-     * @param arg4 第4引数
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <T3> 第3引数の型
-     * @param <T4> 第4引数の型
-     * @param <R> 戻り値の型
-     * @param <E> スローされる例外の型
-     * @return ラムダの戻り値
-     * @throws E ラムダがスローした例外
-     */
-    public static <T1, T2, T3, T4, R, E extends Throwable> R da(ThrowableFunction4<T1, T2, T3, T4, R, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4) throws E {
-        return of(action).da(arg1, arg2, arg3, arg4);
-    }
-
-    // =========== ThrowableFunction5 ===========
-
-    /**
-     * ラムダ式（引数５個、戻り値あり）
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <T3> 第3引数の型
-     * @param <T4> 第4引数の型
-     * @param <T5> 第5引数の型
-     * @param <R> 戻り値の型
-     * @param <E> スローされる例外の型
-     */
-    @FunctionalInterface
-    public interface ThrowableFunction5<T1, T2, T3, T4, T5, R, E extends Throwable> {
-        R da(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5) throws E;
-    }
-
-    /**
-     * ラムダ式を保持します。（引数５個、戻り値あり）
-     * <p>
-     * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
-     *
-     * @param action 保持するラムダ式
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <T3> 第3引数の型
-     * @param <T4> 第4引数の型
-     * @param <T5> 第5引数の型
-     * @param <R> 戻り値の型
-     * @param <E> スローされる例外の型
-     * @return 保持されたラムダオブジェクト
-     */
-    public static <T1, T2, T3, T4, T5, R, E extends Throwable> ThrowableFunction5<T1, T2, T3, T4, T5, R, E> of(ThrowableFunction5<T1, T2, T3, T4, T5, R, E> action) {
-        return action;
-    }
-
-    /**
-     * ラムダ式を即時実行します。（引数５個、戻り値あり）
-     *
-     * @param action 実行するラムダ式
-     * @param arg1 第1引数
-     * @param arg2 第2引数
-     * @param arg3 第3引数
-     * @param arg4 第4引数
-     * @param arg5 第5引数
-     * @param <T1> 第1引数の型
-     * @param <T2> 第2引数の型
-     * @param <T3> 第3引数の型
-     * @param <T4> 第4引数の型
-     * @param <T5> 第5引数の型
-     * @param <R> 戻り値の型
-     * @param <E> スローされる例外の型
-     * @return ラムダの戻り値
-     * @throws E ラムダがスローした例外
-     */
-    public static <T1, T2, T3, T4, T5, R, E extends Throwable> R da(ThrowableFunction5<T1, T2, T3, T4, T5, R, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5) throws E {
-        return of(action).da(arg1, arg2, arg3, arg4, arg5);
-    }
+	private Lamb() {}
+	
+	// =========== ThrowableRunnable ===========
+	
+	/**
+	 * ラムダ式（引数なし、戻り値なし）
+	 * @param <E> スローされる例外の型
+	 */
+	@FunctionalInterface
+	public interface ThrowableRunnable<E extends Throwable> {
+		/**
+		 * ラムダ式を即時実行します。（引数なし、戻り値なし）
+		 * @throws E ラムダ式がスローした例外
+		 */
+		void da() throws E;
+	}
+	
+	/**
+	 * ラムダ式を保持します。（引数なし、戻り値なし）
+	 * <p>
+	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
+	 *
+	 * @param action 保持するラムダ式
+	 * @param <E> スローされる例外の型
+	 * @return 保持されたラムダ式
+	 */
+	public static <E extends Throwable> ThrowableRunnable<E> of(ThrowableRunnable<E> action) {
+		return action;
+	}
+	
+	/**
+	 * ラムダ式を即時実行します。（引数なし、戻り値なし）
+	 *
+	 * @param action 実行するラムダ式
+	 * @param <E> スローされる例外の型
+	 * @throws E ラムダ式がスローした例外
+	 */
+	public static <E extends Throwable> void da(ThrowableRunnable<E> action) throws E {
+		of(action).da();
+	}
+	
+	// =========== ThrowableSupplier ===========
+	
+	/**
+	 * ラムダ式（引数なし、戻り値あり）
+	 * @param <R> 戻り値の型
+	 * @param <E> スローされる例外の型
+	 */
+	@FunctionalInterface
+	public interface ThrowableSupplier<R, E extends Throwable> {
+		/**
+		 * ラムダ式を即時実行します。（引数なし、戻り値あり）
+		 * @return ラムダ式の戻り値
+		 * @throws E ラムダ式がスローした例外
+		 */
+		R da() throws E;
+	}
+	
+	/**
+	 * ラムダ式を保持します。（引数なし、戻り値あり）
+	 * <p>
+	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
+	 *
+	 * @param action 保持するラムダ式
+	 * @param <R> 戻り値の型
+	 * @param <E> スローされる例外の型
+	 * @return 保持されたラムダ式
+	 */
+	public static <R, E extends Throwable> ThrowableSupplier<R, E> of(ThrowableSupplier<R, E> action) {
+		return action;
+	}
+	
+	/**
+	 * ラムダ式を即時実行します。（引数なし、戻り値あり）
+	 *
+	 * @param action 実行するラムダ式
+	 * @param <R> 戻り値の型
+	 * @param <E> スローされる例外の型
+	 * @return ラムダ式の戻り値
+	 * @throws E ラムダ式がスローした例外
+	 */
+	public static <R, E extends Throwable> R da(ThrowableSupplier<R, E> action) throws E {
+		return of(action).da();
+	}
+	
+	// =========== ThrowableConsumer ===========
+	
+	/**
+	 * ラムダ式（引数1個、戻り値なし）
+	 * @param <T1> 第1引数の型
+	 * @param <E> スローされる例外の型
+	 */
+	@FunctionalInterface
+	public interface ThrowableConsumer1<T1, E extends Throwable> {
+		/**
+		 * ラムダ式を即時実行します。（引数1個、戻り値なし）
+		 * @param arg1 第1引数
+		 * @throws E ラムダ式がスローした例外
+		 */
+		void da(T1 arg1) throws E;
+	}
+	
+	/**
+	 * ラムダ式を保持します。（引数1個、戻り値なし）
+	 * <p>
+	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
+	 * @param action 保持するラムダ式
+	 * @param <T1> 第1引数の型
+	 * @param <E> スローされる例外の型
+	 * @return 保持されたラムダ式
+	 */
+	public static <T1, E extends Throwable> ThrowableConsumer1<T1, E> of(ThrowableConsumer1<T1, E> action) {
+		return action;
+	}
+	
+	/**
+	 * ラムダ式を即時実行します。（引数1個、戻り値なし）
+	 * @param action 実行するラムダ式
+	 * @param arg1 第1引数
+	 * @param <T1> 第1引数の型
+	 * @param <E> スローされる例外の型
+	 * @throws E ラムダ式がスローした例外
+	 */
+	public static <T1, E extends Throwable> void da(ThrowableConsumer1<T1, E> action, T1 arg1) throws E {
+		of(action).da(arg1);
+	}
+	
+	/**
+	 * ラムダ式（引数2個、戻り値なし）
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <E> スローされる例外の型
+	 */
+	@FunctionalInterface
+	public interface ThrowableConsumer2<T1, T2, E extends Throwable> {
+		/**
+		 * ラムダ式を即時実行します。（引数2個、戻り値なし）
+		 * @param arg1 第1引数
+		 * @param arg2 第2引数
+		 * @throws E ラムダ式がスローした例外
+		 */
+		void da(T1 arg1, T2 arg2) throws E;
+	}
+	
+	/**
+	 * ラムダ式を保持します。（引数2個、戻り値なし）
+	 * <p>
+	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
+	 * @param action 保持するラムダ式
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <E> スローされる例外の型
+	 * @return 保持されたラムダ式
+	 */
+	public static <T1, T2, E extends Throwable> ThrowableConsumer2<T1, T2, E> of(ThrowableConsumer2<T1, T2, E> action) {
+		return action;
+	}
+	
+	/**
+	 * ラムダ式を即時実行します。（引数2個、戻り値なし）
+	 * @param action 実行するラムダ式
+	 * @param arg1 第1引数
+	 * @param arg2 第2引数
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <E> スローされる例外の型
+	 * @throws E ラムダ式がスローした例外
+	 */
+	public static <T1, T2, E extends Throwable> void da(ThrowableConsumer2<T1, T2, E> action, T1 arg1, T2 arg2) throws E {
+		of(action).da(arg1, arg2);
+	}
+	
+	/**
+	 * ラムダ式（引数3個、戻り値なし）
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <T3> 第3引数の型
+	 * @param <E> スローされる例外の型
+	 */
+	@FunctionalInterface
+	public interface ThrowableConsumer3<T1, T2, T3, E extends Throwable> {
+		/**
+		 * ラムダ式を即時実行します。（引数3個、戻り値なし）
+		 * @param arg1 第1引数
+		 * @param arg2 第2引数
+		 * @param arg3 第3引数
+		 * @throws E ラムダ式がスローした例外
+		 */
+		void da(T1 arg1, T2 arg2, T3 arg3) throws E;
+	}
+	
+	/**
+	 * ラムダ式を保持します。（引数3個、戻り値なし）
+	 * <p>
+	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
+	 * @param action 保持するラムダ式
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <T3> 第3引数の型
+	 * @param <E> スローされる例外の型
+	 * @return 保持されたラムダ式
+	 */
+	public static <T1, T2, T3, E extends Throwable> ThrowableConsumer3<T1, T2, T3, E> of(ThrowableConsumer3<T1, T2, T3, E> action) {
+		return action;
+	}
+	
+	/**
+	 * ラムダ式を即時実行します。（引数3個、戻り値なし）
+	 * @param action 実行するラムダ式
+	 * @param arg1 第1引数
+	 * @param arg2 第2引数
+	 * @param arg3 第3引数
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <T3> 第3引数の型
+	 * @param <E> スローされる例外の型
+	 * @throws E ラムダ式がスローした例外
+	 */
+	public static <T1, T2, T3, E extends Throwable> void da(ThrowableConsumer3<T1, T2, T3, E> action, T1 arg1, T2 arg2, T3 arg3) throws E {
+		of(action).da(arg1, arg2, arg3);
+	}
+	
+	/**
+	 * ラムダ式（引数4個、戻り値なし）
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <T3> 第3引数の型
+	 * @param <T4> 第4引数の型
+	 * @param <E> スローされる例外の型
+	 */
+	@FunctionalInterface
+	public interface ThrowableConsumer4<T1, T2, T3, T4, E extends Throwable> {
+		/**
+		 * ラムダ式を即時実行します。（引数4個、戻り値なし）
+		 * @param arg1 第1引数
+		 * @param arg2 第2引数
+		 * @param arg3 第3引数
+		 * @param arg4 第4引数
+		 * @throws E ラムダ式がスローした例外
+		 */
+		void da(T1 arg1, T2 arg2, T3 arg3, T4 arg4) throws E;
+	}
+	
+	/**
+	 * ラムダ式を保持します。（引数4個、戻り値なし）
+	 * <p>
+	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
+	 * @param action 保持するラムダ式
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <T3> 第3引数の型
+	 * @param <T4> 第4引数の型
+	 * @param <E> スローされる例外の型
+	 * @return 保持されたラムダ式
+	 */
+	public static <T1, T2, T3, T4, E extends Throwable> ThrowableConsumer4<T1, T2, T3, T4, E> of(ThrowableConsumer4<T1, T2, T3, T4, E> action) {
+		return action;
+	}
+	
+	/**
+	 * ラムダ式を即時実行します。（引数4個、戻り値なし）
+	 * @param action 実行するラムダ式
+	 * @param arg1 第1引数
+	 * @param arg2 第2引数
+	 * @param arg3 第3引数
+	 * @param arg4 第4引数
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <T3> 第3引数の型
+	 * @param <T4> 第4引数の型
+	 * @param <E> スローされる例外の型
+	 * @throws E ラムダ式がスローした例外
+	 */
+	public static <T1, T2, T3, T4, E extends Throwable> void da(ThrowableConsumer4<T1, T2, T3, T4, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4) throws E {
+		of(action).da(arg1, arg2, arg3, arg4);
+	}
+	
+	/**
+	 * ラムダ式（引数5個、戻り値なし）
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <T3> 第3引数の型
+	 * @param <T4> 第4引数の型
+	 * @param <T5> 第5引数の型
+	 * @param <E> スローされる例外の型
+	 */
+	@FunctionalInterface
+	public interface ThrowableConsumer5<T1, T2, T3, T4, T5, E extends Throwable> {
+		/**
+		 * ラムダ式を即時実行します。（引数5個、戻り値なし）
+		 * @param arg1 第1引数
+		 * @param arg2 第2引数
+		 * @param arg3 第3引数
+		 * @param arg4 第4引数
+		 * @param arg5 第5引数
+		 * @throws E ラムダ式がスローした例外
+		 */
+		void da(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5) throws E;
+	}
+	
+	/**
+	 * ラムダ式を保持します。（引数5個、戻り値なし）
+	 * <p>
+	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
+	 * @param action 保持するラムダ式
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <T3> 第3引数の型
+	 * @param <T4> 第4引数の型
+	 * @param <T5> 第5引数の型
+	 * @param <E> スローされる例外の型
+	 * @return 保持されたラムダ式
+	 */
+	public static <T1, T2, T3, T4, T5, E extends Throwable> ThrowableConsumer5<T1, T2, T3, T4, T5, E> of(ThrowableConsumer5<T1, T2, T3, T4, T5, E> action) {
+		return action;
+	}
+	
+	/**
+	 * ラムダ式を即時実行します。（引数5個、戻り値なし）
+	 * @param action 実行するラムダ式
+	 * @param arg1 第1引数
+	 * @param arg2 第2引数
+	 * @param arg3 第3引数
+	 * @param arg4 第4引数
+	 * @param arg5 第5引数
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <T3> 第3引数の型
+	 * @param <T4> 第4引数の型
+	 * @param <T5> 第5引数の型
+	 * @param <E> スローされる例外の型
+	 * @throws E ラムダ式がスローした例外
+	 */
+	public static <T1, T2, T3, T4, T5, E extends Throwable> void da(ThrowableConsumer5<T1, T2, T3, T4, T5, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5) throws E {
+		of(action).da(arg1, arg2, arg3, arg4, arg5);
+	}
+	
+	// =========== ThrowableFunction ===========
+	
+	/**
+	 * ラムダ式（引数1個、戻り値あり）
+	 * @param <T1> 第1引数の型
+	 * @param <R> 戻り値の型
+	 * @param <E> スローされる例外の型
+	 */
+	@FunctionalInterface
+	public interface ThrowableFunction1<T1, R, E extends Throwable> {
+		/**
+		 * ラムダ式を即時実行します。（引数1個、戻り値あり）
+		 * @param arg1 第1引数
+		 * @return ラムダ式の戻り値
+		 * @throws E ラムダ式がスローした例外
+		 */
+		R da(T1 arg1) throws E;
+	}
+	
+	/**
+	 * ラムダ式を保持します。（引数1個、戻り値あり）
+	 * <p>
+	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
+	 * @param action 保持するラムダ式
+	 * @param <T1> 第1引数の型
+	 * @param <R> 戻り値の型
+	 * @param <E> スローされる例外の型
+	 * @return 保持されたラムダ式
+	 */
+	public static <T1, R, E extends Throwable> ThrowableFunction1<T1, R, E> of(ThrowableFunction1<T1, R, E> action) {
+		return action;
+	}
+	
+	/**
+	 * ラムダ式を即時実行します。（引数1個、戻り値あり）
+	 * @param action 実行するラムダ式
+	 * @param arg1 第1引数
+	 * @param <T1> 第1引数の型
+	 * @param <R> 戻り値の型
+	 * @param <E> スローされる例外の型
+	 * @return ラムダ式の戻り値
+	 * @throws E ラムダ式がスローした例外
+	 */
+	public static <T1, R, E extends Throwable> R da(ThrowableFunction1<T1, R, E> action, T1 arg1) throws E {
+		return of(action).da(arg1);
+	}
+	
+	/**
+	 * ラムダ式（引数2個、戻り値あり）
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <R> 戻り値の型
+	 * @param <E> スローされる例外の型
+	 */
+	@FunctionalInterface
+	public interface ThrowableFunction2<T1, T2, R, E extends Throwable> {
+		/**
+		 * ラムダ式を即時実行します。（引数2個、戻り値あり）
+		 * @param arg1 第1引数
+		 * @param arg2 第2引数
+		 * @return ラムダ式の戻り値
+		 * @throws E ラムダ式がスローした例外
+		 */
+		R da(T1 arg1, T2 arg2) throws E;
+	}
+	
+	/**
+	 * ラムダ式を保持します。（引数2個、戻り値あり）
+	 * <p>
+	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
+	 * @param action 保持するラムダ式
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <R> 戻り値の型
+	 * @param <E> スローされる例外の型
+	 * @return 保持されたラムダ式
+	 */
+	public static <T1, T2, R, E extends Throwable> ThrowableFunction2<T1, T2, R, E> of(ThrowableFunction2<T1, T2, R, E> action) {
+		return action;
+	}
+	
+	/**
+	 * ラムダ式を即時実行します。（引数2個、戻り値あり）
+	 * @param action 実行するラムダ式
+	 * @param arg1 第1引数
+	 * @param arg2 第2引数
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <R> 戻り値の型
+	 * @param <E> スローされる例外の型
+	 * @return ラムダ式の戻り値
+	 * @throws E ラムダ式がスローした例外
+	 */
+	public static <T1, T2, R, E extends Throwable> R da(ThrowableFunction2<T1, T2, R, E> action, T1 arg1, T2 arg2) throws E {
+		return of(action).da(arg1, arg2);
+	}
+	
+	/**
+	 * ラムダ式（引数3個、戻り値あり）
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <T3> 第3引数の型
+	 * @param <R> 戻り値の型
+	 * @param <E> スローされる例外の型
+	 */
+	@FunctionalInterface
+	public interface ThrowableFunction3<T1, T2, T3, R, E extends Throwable> {
+		/**
+		 * ラムダ式を即時実行します。（引数3個、戻り値あり）
+		 * @param arg1 第1引数
+		 * @param arg2 第2引数
+		 * @param arg3 第3引数
+		 * @return ラムダ式の戻り値
+		 * @throws E ラムダ式がスローした例外
+		 */
+		R da(T1 arg1, T2 arg2, T3 arg3) throws E;
+	}
+	
+	/**
+	 * ラムダ式を保持します。（引数3個、戻り値あり）
+	 * <p>
+	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
+	 * @param action 保持するラムダ式
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <T3> 第3引数の型
+	 * @param <R> 戻り値の型
+	 * @param <E> スローされる例外の型
+	 * @return 保持されたラムダ式
+	 */
+	public static <T1, T2, T3, R, E extends Throwable> ThrowableFunction3<T1, T2, T3, R, E> of(ThrowableFunction3<T1, T2, T3, R, E> action) {
+		return action;
+	}
+	
+	/**
+	 * ラムダ式を即時実行します。（引数3個、戻り値あり）
+	 * @param action 実行するラムダ式
+	 * @param arg1 第1引数
+	 * @param arg2 第2引数
+	 * @param arg3 第3引数
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <T3> 第3引数の型
+	 * @param <R> 戻り値の型
+	 * @param <E> スローされる例外の型
+	 * @return ラムダ式の戻り値
+	 * @throws E ラムダ式がスローした例外
+	 */
+	public static <T1, T2, T3, R, E extends Throwable> R da(ThrowableFunction3<T1, T2, T3, R, E> action, T1 arg1, T2 arg2, T3 arg3) throws E {
+		return of(action).da(arg1, arg2, arg3);
+	}
+	
+	/**
+	 * ラムダ式（引数4個、戻り値あり）
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <T3> 第3引数の型
+	 * @param <T4> 第4引数の型
+	 * @param <R> 戻り値の型
+	 * @param <E> スローされる例外の型
+	 */
+	@FunctionalInterface
+	public interface ThrowableFunction4<T1, T2, T3, T4, R, E extends Throwable> {
+		/**
+		 * ラムダ式を即時実行します。（引数4個、戻り値あり）
+		 * @param arg1 第1引数
+		 * @param arg2 第2引数
+		 * @param arg3 第3引数
+		 * @param arg4 第4引数
+		 * @return ラムダ式の戻り値
+		 * @throws E ラムダ式がスローした例外
+		 */
+		R da(T1 arg1, T2 arg2, T3 arg3, T4 arg4) throws E;
+	}
+	
+	/**
+	 * ラムダ式を保持します。（引数4個、戻り値あり）
+	 * <p>
+	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
+	 * @param action 保持するラムダ式
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <T3> 第3引数の型
+	 * @param <T4> 第4引数の型
+	 * @param <R> 戻り値の型
+	 * @param <E> スローされる例外の型
+	 * @return 保持されたラムダ式
+	 */
+	public static <T1, T2, T3, T4, R, E extends Throwable> ThrowableFunction4<T1, T2, T3, T4, R, E> of(ThrowableFunction4<T1, T2, T3, T4, R, E> action) {
+		return action;
+	}
+	
+	/**
+	 * ラムダ式を即時実行します。（引数4個、戻り値あり）
+	 * @param action 実行するラムダ式
+	 * @param arg1 第1引数
+	 * @param arg2 第2引数
+	 * @param arg3 第3引数
+	 * @param arg4 第4引数
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <T3> 第3引数の型
+	 * @param <T4> 第4引数の型
+	 * @param <R> 戻り値の型
+	 * @param <E> スローされる例外の型
+	 * @return ラムダ式の戻り値
+	 * @throws E ラムダ式がスローした例外
+	 */
+	public static <T1, T2, T3, T4, R, E extends Throwable> R da(ThrowableFunction4<T1, T2, T3, T4, R, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4) throws E {
+		return of(action).da(arg1, arg2, arg3, arg4);
+	}
+	
+	/**
+	 * ラムダ式（引数5個、戻り値あり）
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <T3> 第3引数の型
+	 * @param <T4> 第4引数の型
+	 * @param <T5> 第5引数の型
+	 * @param <R> 戻り値の型
+	 * @param <E> スローされる例外の型
+	 */
+	@FunctionalInterface
+	public interface ThrowableFunction5<T1, T2, T3, T4, T5, R, E extends Throwable> {
+		/**
+		 * ラムダ式を即時実行します。（引数5個、戻り値あり）
+		 * @param arg1 第1引数
+		 * @param arg2 第2引数
+		 * @param arg3 第3引数
+		 * @param arg4 第4引数
+		 * @param arg5 第5引数
+		 * @return ラムダ式の戻り値
+		 * @throws E ラムダ式がスローした例外
+		 */
+		R da(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5) throws E;
+	}
+	
+	/**
+	 * ラムダ式を保持します。（引数5個、戻り値あり）
+	 * <p>
+	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
+	 * @param action 保持するラムダ式
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <T3> 第3引数の型
+	 * @param <T4> 第4引数の型
+	 * @param <T5> 第5引数の型
+	 * @param <R> 戻り値の型
+	 * @param <E> スローされる例外の型
+	 * @return 保持されたラムダ式
+	 */
+	public static <T1, T2, T3, T4, T5, R, E extends Throwable> ThrowableFunction5<T1, T2, T3, T4, T5, R, E> of(ThrowableFunction5<T1, T2, T3, T4, T5, R, E> action) {
+		return action;
+	}
+	
+	/**
+	 * ラムダ式を即時実行します。（引数5個、戻り値あり）
+	 * @param action 実行するラムダ式
+	 * @param arg1 第1引数
+	 * @param arg2 第2引数
+	 * @param arg3 第3引数
+	 * @param arg4 第4引数
+	 * @param arg5 第5引数
+	 * @param <T1> 第1引数の型
+	 * @param <T2> 第2引数の型
+	 * @param <T3> 第3引数の型
+	 * @param <T4> 第4引数の型
+	 * @param <T5> 第5引数の型
+	 * @param <R> 戻り値の型
+	 * @param <E> スローされる例外の型
+	 * @return ラムダ式の戻り値
+	 * @throws E ラムダ式がスローした例外
+	 */
+	public static <T1, T2, T3, T4, T5, R, E extends Throwable> R da(ThrowableFunction5<T1, T2, T3, T4, T5, R, E> action, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5) throws E {
+		return of(action).da(arg1, arg2, arg3, arg4, arg5);
+	}
 }
