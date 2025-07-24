@@ -80,7 +80,6 @@ $lines += "`t/**"
 $lines += "`t * ラムダ式を保持する（引数なし、戻り値なし）"
 $lines += "`t * <p>"
 $lines += "`t * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。"
-$lines += "`t *"
 $lines += "`t * @param action 保持するラムダ式"
 $lines += "`t * @param <E> スローされる例外の型"
 $lines += "`t * @return 保持されたラムダ式"
@@ -91,7 +90,6 @@ $lines += "`t}"
 $lines += "`t"
 $lines += "`t/**"
 $lines += "`t * ラムダ式を即時実行する（引数なし、戻り値なし）"
-$lines += "`t *"
 $lines += "`t * @param action 実行するラムダ式"
 $lines += "`t * @param <E> スローされる例外の型"
 $lines += "`t * @throws E ラムダ式がスローした例外"
@@ -121,7 +119,6 @@ $lines += "`t/**"
 $lines += "`t * ラムダ式を保持する（引数なし、戻り値あり）"
 $lines += "`t * <p>"
 $lines += "`t * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。"
-$lines += "`t *"
 $lines += "`t * @param action 保持するラムダ式"
 $lines += "`t * @param <R> 戻り値の型"
 $lines += "`t * @param <E> スローされる例外の型"
@@ -133,7 +130,6 @@ $lines += "`t}"
 $lines += "`t"
 $lines += "`t/**"
 $lines += "`t * ラムダ式を即時実行する（引数なし、戻り値あり）"
-$lines += "`t *"
 $lines += "`t * @param action 実行するラムダ式"
 $lines += "`t * @param <R> 戻り値の型"
 $lines += "`t * @param <E> スローされる例外の型"
@@ -319,6 +315,21 @@ for ($i = 1; $i -le $count; $i++) {
 }
 
 $lines += "}"
-$outputPath = "Lamb.java"
-$lines -join "`n" | Set-Content -Encoding UTF8 $outputPath
+$lines += ""
+
+$package_dir = $package -replace '\.', '/'
+$output_dir = "src\${package_dir}"
+$outputPath = "${output_dir}\Lamb.java"
+if (Test-Path "src") {
+    Remove-Item "src" -Recurse -Force
+}
+New-Item -ItemType Directory -Path $output_dir -Force
+$utf8NoBom = New-Object System.Text.UTF8Encoding($false) # false → BOMなし
+$writer = New-Object System.IO.StreamWriter($outputPath, $false, $utf8NoBom)
+$writer.Write($lines -join "`n")
+$writer.Close()
 Write-Host "Generated $outputPath"
+
+javadoc -d ./docs -sourcepath src -subpackages $package -encoding UTF-8 -charset UTF-8 -public
+
+Write-Host "Generated javadoc"

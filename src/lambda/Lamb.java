@@ -1,4 +1,4 @@
-﻿package lambda;
+package lambda;
 
 /**
  * {@code Lamb} は、例外をスローするラムダ式を即時実行または保持して実行するためのユーティリティクラスです。
@@ -74,7 +74,6 @@ public final class Lamb {
 	 * ラムダ式を保持する（引数なし、戻り値なし）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
-	 *
 	 * @param action 保持するラムダ式
 	 * @param <E> スローされる例外の型
 	 * @return 保持されたラムダ式
@@ -85,7 +84,6 @@ public final class Lamb {
 	
 	/**
 	 * ラムダ式を即時実行する（引数なし、戻り値なし）
-	 *
 	 * @param action 実行するラムダ式
 	 * @param <E> スローされる例外の型
 	 * @throws E ラムダ式がスローした例外
@@ -115,7 +113,6 @@ public final class Lamb {
 	 * ラムダ式を保持する（引数なし、戻り値あり）
 	 * <p>
 	 * 即時実行ではなく、後から {@code da(...)} を呼び出すことで任意のタイミングで実行可能です。
-	 *
 	 * @param action 保持するラムダ式
 	 * @param <R> 戻り値の型
 	 * @param <E> スローされる例外の型
@@ -127,7 +124,6 @@ public final class Lamb {
 	
 	/**
 	 * ラムダ式を即時実行する（引数なし、戻り値あり）
-	 *
 	 * @param action 実行するラムダ式
 	 * @param <R> 戻り値の型
 	 * @param <E> スローされる例外の型
