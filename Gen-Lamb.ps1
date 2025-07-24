@@ -1,5 +1,5 @@
 param (
-    [int]$count = 100,
+    [int]$count = 20,
     [string]$package = "lambda"
 )
 
