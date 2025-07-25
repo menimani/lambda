@@ -1,7 +1,9 @@
 param (
     [int]$count = 20,
-    [string]$package = "lambda"
+    [string]$package = "lambda",
+    [string]$java_home = "$env:JAVA_HOME"
 )
+$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 $lines = @()
 $lines += "package ${package};"
@@ -317,19 +319,26 @@ for ($i = 1; $i -le $count; $i++) {
 $lines += "}"
 $lines += ""
 
-$package_dir = $package -replace '\.', '/'
-$output_dir = "src\${package_dir}"
+$package_dir = $package -replace '\.', '\'
+$output_dir = "$scriptDir\src\${package_dir}"
 $outputPath = "${output_dir}\Lamb.java"
-if (Test-Path "src") {
-    Remove-Item "src" -Recurse -Force
+if (Test-Path "$scriptDir\src") {
+    Remove-Item "$scriptDir\src" -Recurse -Force
 }
 New-Item -ItemType Directory -Path $output_dir -Force
-$utf8NoBom = New-Object System.Text.UTF8Encoding($false) # false → BOMなし
-$writer = New-Object System.IO.StreamWriter($outputPath, $false, $utf8NoBom)
+$utf8 = New-Object System.Text.UTF8Encoding($false)
+$writer = New-Object System.IO.StreamWriter($outputPath, $false, $utf8)
 $writer.Write($lines -join "`n")
 $writer.Close()
 Write-Host "Generated $outputPath"
 
-javadoc -d ./docs -sourcepath src -subpackages $package -encoding UTF-8 -charset UTF-8 -public
+if (!(Test-Path "$java_home\bin\javadoc.exe")) {
+    Write-Error "javadoc.exe が見つかりません。JAVA_HOMEが正しいか確認してください。"
+    exit 1
+}
+if (Test-Path "$scriptDir\docs") {
+    Remove-Item "$scriptDir\docs" -Recurse -Force
+}
+& "$java_home\bin\javadoc.exe" -d "$scriptDir\docs" -sourcepath "$scriptDir\src" -subpackages "$package" -encoding UTF-8 -charset UTF-8 -public
 
 Write-Host "Generated javadoc"
