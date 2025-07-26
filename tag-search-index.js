@@ -1,0 +1,1 @@
+tagSearchIndex = [{"l":"主な用途","h":"class lambda.Lamb","d":"Section","u":"lambda/Lamb.html#--heading"},{"l":"使用例","h":"class lambda.Lamb","d":"Section","u":"lambda/Lamb.html#--heading1"},{"l":"例外伝搬","h":"class lambda.Lamb","d":"Section","u":"lambda/Lamb.html#--heading3"},{"l":"命名規則","h":"class lambda.Lamb","d":"Section","u":"lambda/Lamb.html#--heading2"}];updateSearchResults();
