@@ -4,3 +4,4 @@
 
 !.gitignore
 !Gen-Lamb.ps1
+!.github/workflows/javadoc.yml
